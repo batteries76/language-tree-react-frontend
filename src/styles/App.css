@@ -1,0 +1,761 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Amatic SC', cursive;
+    background-color: gainsboro;
+}
+
+#root {
+    height: 100vh;
+}
+
+.info-maps-thanks {
+    /* font-size: ; */
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info-maps-thanks-item {
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12px;
+    width: 12px;
+    padding: 2px;
+    margin: 3px;
+    background-color: silver;
+    font-size: 8px;
+}
+
+.modal-wrapper {
+    position: fixed;
+    z-index: 5;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+}
+
+.show-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+    background-color: rgb(192, 192, 192, 0.7);
+    /* opacity: 0.5; */
+}
+
+#info {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.info-modal, .thanks-modal, .wiki-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    overflow: scroll;
+    position: absolute;
+    visibility: hidden;
+    z-index: 10;
+    max-width: 700px;
+    width: 70%;
+    height: 80%;
+    background-color: rgb(245, 245, 245, 1);
+    /* opacity: 1; */
+}
+
+.wiki-modal a {
+    text-decoration: none;
+    /* background-color: lime; */
+    color: black;
+    cursor: text;
+}
+
+.map-modal {
+    overflow: scroll;
+    position: absolute;
+    visibility: hidden;
+    z-index: 10;
+    max-width: 700px;
+    width: 70%;
+    height: 80%;
+    background-color: rgb(245, 245, 245, 1);
+    /* opacity: 1; */
+}
+
+.info-modal p, span, h2 {
+    margin: 8px;
+}
+
+.thanks-modal p, span, h2 {
+    margin: 8px;
+}
+
+.info-modal p {
+    font-family: 'Loved by the King', cursive;
+    font-size: 24px;
+}
+
+.thanks-modal p {
+    font-family: 'Loved by the King', cursive;
+    font-size: 26px;
+}
+
+.info-modal span {
+    font-family: 'Long Cang';
+    font-size: 12px;
+}
+
+.show-modal {
+    visibility: visible;
+    opacity: 1;
+}
+
+.map-modal img {
+    /* overflow: scroll; */
+    /* overflow-x: scroll;
+    overflow-y: scroll; */
+    object-fit: none;
+    /* object-position: -50 0; */
+}
+
+.app {
+    height: 100%;
+}
+
+.title-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-area h1 {
+    margin-right: 7px;
+}
+
+#main-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* font-family: 'Shadows Into Light', cursive; */
+    
+    font-size: 45px;
+    /* padding: 10px; */
+}
+
+#main-title span {
+    margin-right: 5px;
+    font-size: 1.2rem;
+}
+
+.keys {
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+
+.language-status-wrapper {
+    padding-left: 23px;
+    /* position: fixed;
+    top: 20px;
+    left: 40px; */
+    height: auto;
+    width: 100px;
+}
+
+.language-status-key {
+    min-width: 150px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.language-status-colour {
+    /* background-color: indianred; */
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.language-key-group, .language-percentage-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.language-percentage-wrapper {
+    padding-right: 23px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    /* position: fixed;
+    top: 20px;
+    right: 50px; */
+    /* height: 100px; */
+    width: 25%;
+    min-width: 330px;
+}
+
+.language-percentage-key {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.language-percentage-colour {
+    /* background-color: indianred; */
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.one {
+    background-color: papayawhip;
+}
+.two {
+    background-color: KHAKI;
+}
+.three {
+    background-color: GOLDENROD;
+}
+.four {
+    background-color: ORANGE;
+}
+.five {
+    background-color: DARKORANGE;
+}
+.six {
+    background-color: ORANGERED;
+}
+.seven {
+    background-color: RED;
+}
+.eight {
+    background-color: FIREBRICK;
+}
+.nine {
+    background-color: DARKRED;
+}
+.ten {
+    background-color: LIGHTSTEELBLUE;
+}
+.eleven {
+    background-color: powderblue;
+}
+
+/****************************
+****** COLOURS FOR MAP ******
+< 1%: PAPAYAWHIP
+1-2%: KHAKI
+2-5%: YELLOW
+5-10%: ORANGE
+10-20%: DARKORANGE
+20-40%: ORANGERED
+40-60%: RED
+60-80%: FIREBRICK
+80-100%: DARKRED
+No percentage data: LIGHTSTEELBLUE
+****************************/
+.search-bar {
+    height: 18px;
+    align-self: flex-end;
+    font-size: 1.2rem;
+}
+
+.tree-and-map-wrapper {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 60%;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 2fr)); */
+    /* grid-template-rows: 100%; */
+    /* grid-gap: 10px; */
+    /* justify-content: space-around; */
+    background-color: gainsboro;
+}
+
+.tree-area, .map-area, .language-families-area, .search-results-area {
+    width: 49%;
+    height: 100%;
+    background-color: silver;
+    min-width: 320px;
+}
+
+.search-results-area {
+    position: relative;
+    overflow-y: scroll;
+}
+
+.no-results {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.language-families-area .head-card {
+    margin-top: 40px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding: 20px;
+    background-color: lightslategray;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.language-families-area .language-card-child {
+    background-color: lightblue;
+}
+
+.result-path-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow-y: scroll;
+}
+
+.language-families-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.tree-area {
+    overflow-y: scroll;
+}
+
+.map-area {
+    color: white;
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tree-area {
+    position: relative;
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#up {
+    font-size: 50px;
+}
+
+#down {
+    font-size: 35px;
+}
+
+#up-3 {
+    font-size: 35px;
+}
+
+#down-3 {
+    font-size: 28px;
+}
+
+.grand-children-wrapper {
+    /* width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+}
+
+.language-card-grandchild {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    margin: 5px;
+    padding: 3px;
+}
+
+.y {
+    background-color: lightgreen;
+}
+
+.n {
+    background-color: indianred;
+}
+
+.f, .x {
+    background-color: lightblue;
+}
+
+#loader {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.go-back-up, .top-of-tree {
+    color: white;
+    margin-top: 25px;
+    padding: 10px;
+    background-color: lightslategray;
+}
+
+.bottom-three {
+    font-size: 0.6rem;
+    margin-bottom: 4px;
+}
+
+.go-back-up {
+    cursor: pointer;
+}
+
+.head-card {
+    /* background-color: cornflowerblue; */
+    /* width: 80%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100px; */
+    font-size: 2.5rem;
+}
+
+.head-card-3 {
+    /* background-color: cornflowerblue; */
+    /* width: 80%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100px; */
+    font-size: 2rem;
+}
+
+.language-card-head-title {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.path-main-result {
+    margin-top: 5px;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.path-result {
+    margin-top: 5px;
+    /* padding: 3px; */
+    cursor: pointer;
+    /* width: 100px; */
+    font-size: 1.5rem;
+    height: 40px;
+    /* background-color: coral; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 3px;
+    /* height:  */
+}
+
+.path-head {
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+.children-wrapper {
+    min-height: 180px;
+    /* background-color: brown; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* flex-grow: 1; */
+    flex-wrap: wrap;
+    align-items: center;
+    /* margin: 25px 15px; */
+}
+
+.language-card-child {
+    cursor: pointer;
+    /* width: 100px; */
+    font-size: 1.5rem;
+    height: 40px;
+    /* background-color: coral; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 3px;
+    /* height:  */
+}
+
+#desktop-key {
+    visibility: visible;
+}
+
+#mobile-key {
+    position: fixed;
+    visibility: hidden;
+}
+
+.map-zone {
+    position: unset;
+    width: 100%;
+    height: 100%;
+}
+
+#js-map {
+    height: 100%;
+    width: 100%;
+}
+
+.details-header {
+    width: 14%;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.details-header span {
+    color: white;
+}
+
+.details-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100%; */
+    width: 100%;
+    padding: 10px;
+}
+
+.country-details {
+    width: 100%;
+    font-size: 0.9rem;
+    /* background-color: purple; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* align-items: center; */
+}
+
+.change-tree-format-button {
+    padding: 3px;
+    background-color: ivory;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    cursor: pointer;
+}
+
+.language-status-and-search {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+}
+
+.search-bar {
+    /* display: none; */
+    margin-bottom: 10px;
+    /* visibility: hidden; */
+}
+
+.search-sublist-wrapper {
+    position: absolute;
+    z-index: 20;
+    height: 180px;
+    overflow-y: scroll;
+    margin-top: 6px;
+    background-color: ivory;
+    width: 200px;
+    color: darkslategrey;
+    height: auto;
+    max-height: 300px;
+    border: solid lightgrey 0.5px;
+}
+
+.waiting-for-details {
+    font-size: 2.1rem;
+    color: white;
+    background-color: silver;
+    padding: 25px;
+}
+
+#search-label {
+    /* margin-right: 50px; */
+}
+
+#search-input {
+    margin-left: 5px;
+    height: 23px;
+    width: 160px;
+    outline: none;
+    padding-left: 5px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 1rem;
+    border: solid lightgrey 0.2px;
+    background-color: ivory;
+    /* margin-bottom: 50px; */
+}
+
+.search-item {
+    width: 96%;
+    padding: 4px;
+    padding-left: 6px;
+    border-bottom: solid lightgrey 0.5px;
+    border-right: solid lightgrey 0.5px;
+    border-left: solid lightgrey 0.5px;
+    cursor: pointer;
+}
+
+.back-to-families-button {
+    padding: 3px;
+    background-color: ivory;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+}
+
+.back-to-families-from-search-button {
+    padding: 3px;
+    background-color: ivory;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+}
+
+.details-wrapper {
+    height: 160px;
+    padding: 10px;
+    margin-top: -10px;
+    margin-left: 10px;
+    margin-right: 27px;
+    background-color: silver;
+    /* width: 100%; */
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.header-and-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-x: scroll;
+}
+
+.country-details-card {
+    max-height: 117px;
+    overflow-y: scroll;
+    padding: 5px;
+    margin-right: 10px;
+    max-width: 120px;
+    background-color: slategrey;
+    margin-bottom: 7px;
+}
+
+.country-details-card h2 {
+    /* padding: 0; */
+    margin: 0;
+    color: whitesmoke;
+}
+
+.country-details-card span {
+    color: whitesmoke;
+}
+
+.header-and-card-details-wrapper {
+    width: 85%;
+}
+
+.header-and-card-details-wrapper h1 {
+    font-size: 1.2rem;
+    color: whitesmoke;
+    padding: 3px;
+    background-color: darkgray;
+    margin-bottom: 3px;
+}
+
+.family-countries-area {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.families-country-card {
+    color: white;
+    margin: 3px;
+    padding: 3px;
+    background-color: slategray;
+}
+
+@media screen and (max-width: 675px) {
+    body {
+        /* overflow: scroll; */
+        height: auto;
+    }
+    .tree-and-map-wrapper {
+        width: 95%;
+        margin: 0;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        /* height: 900px; */
+    }
+    .tree-area, .map-area, .language-families-area, .search-results-area {
+        width: 98%;
+        height: 480px;
+    } 
+    #desktop-key {
+        position: fixed;
+        visibility: hidden;
+    }
+    
+    #mobile-key {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        position: relative;
+        visibility: visible;
+        align-self: flex-start;
+    }
+    .details-wrapper {
+        height: auto;
+        margin: 0;
+    }
+    .details-area {
+        width: 95%;
+    }
+    .country-details {
+        flex-wrap: wrap;
+    }
+    .language-status-and-search {
+        width: 95%;
+    }
+}
